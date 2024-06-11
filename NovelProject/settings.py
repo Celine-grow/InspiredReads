@@ -87,7 +87,8 @@ DATABASES = {
     }
 }
 
-GOOGLE_BOOKS_API_KEY = "AIzaSyA78bkTAf1HdbCdDwe8GoucwxvuI36VFts"
+GOOGLE_BOOKS_API_KEY = " "
+
 print(f"Google Books API Key: {GOOGLE_BOOKS_API_KEY}")
 
 
