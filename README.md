@@ -32,3 +32,6 @@ Technical Overview
 6.Security
 -CSRF Protection: Ensures secure forms and API interactions.
 -User Authentication: Secure handling of user credentials and sessions.
+
+
+When running this project remember to set the google_books_api_key so as to fetch these book data.In my local environment i used  it as an environment variable in the system as well as hardcode it but for professionalism  and guideline purposes i cannot expose these keys.
