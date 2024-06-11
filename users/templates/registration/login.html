@@ -1,0 +1,33 @@
+<!-- templates/registration/login.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <style>
+        .More{
+            align-content: flex-end;
+            flex-direction: column;
+            text-align: center;
+            font-size: 20px;
+            margin-top: 0rem;
+        }
+    </style>
+</head>
+<body style="background-color: wheat;">
+    <h2>Login</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Login</button>
+    </form>
+    <p>Don't have an account? <a href="{% url 'users:register' %}">Register here</a></p>
+    <br>
+    <div class="More">
+        <h1 style="font-size: 50px;font-family:Georgia;">InspiredReads</h2>
+        <p>Did you Know</p>
+        <p>InspiredReads has been ranked top 3 as the best novel reading platform</p>
+        <p>Thanks to You!We celebrate you</p>
+    </div>
+</body>
+</html>

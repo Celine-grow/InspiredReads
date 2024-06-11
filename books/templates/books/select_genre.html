@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Genre Preferences</title>
+    <style>
+    body{
+    background-color: whitesmoke;
+    display: flex;
+    align-items: left;
+    justify-content: left;
+    text-align: left;
+    font-size: medium;
+    }
+    .Container{
+    
+    border: 5rem 3rem 3rem 3rem;
+    box-sizing: border-box;
+    box-shadow: 3px 4px 3px 4px #00000040;
+    padding: 2rem;
+    background-color: #f1f5f8;
+    width: 350px;
+    height: 600px;
+    background-color: wheat;
+    }
+    .Content{
+        justify-content: left;
+        align-items: left;
+        text-align: left;
+        font-size: 29px;
+    }
+    form .Content button:hover{
+        color: rgb(83, 13, 153);
+        height: 3rem;
+        width: 5rem;
+        
+    }
+    img{
+        height: 600px;
+        width: 1000px;
+    }
+    </style>
+</head>
+<body >
+    
+    <form class="Container" method="post">
+        {% csrf_token %}
+        <div class="Content">
+            {{form.as_p}}
+        <button type="submit">Submit</button>
+        </div>
+        
+    </form>
+    <img src="https://media.istockphoto.com/id/1412637153/photo/magic-book-with-open-pages-and-abstract-lights-shining-in-darkness-literature-and-fairytale.jpg?s=2048x2048&w=is&k=20&c=Nxl8AJFQwgzzi99uf7JSddG6zRhIpzPVPOrwecYaFxE="  alt="bookcometolife">
+</body>
+</html>

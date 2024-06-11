@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h2{
+            text-decoration: underline;
+        }
+        p{
+            font-family: Georgia;
+        }
+    </style>
+</head>
+<body>
+    <title>Recommended Books</title>
+    
+    {% block content%}
+    {% if books %}
+        {% for book in books %}
+        <div>
+            <h2>{{book.volumeInfo.title}}</h2>
+            <p>{{book.volumeInfo.description}}</p>
+            <p>{{book.volumeInfo.authors|join:", "}}</p>
+        </div>
+        {% endfor %}
+    {% else %}
+        <p>No Recommended books found</p>
+    {% endif %}
+    <a href="{% url 'users:dashboard' %}">Back to dashboard</a>
+    {% endblock %}
+</body>
+</html>

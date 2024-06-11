@@ -1,0 +1,28 @@
+<!-- writing/templates/writing/edit_writing.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Novel</title>
+    <style>
+      body{
+        background-color: wheat;
+        height: 520px;
+        background-image: url("https://media.istockphoto.com/id/1489201877/photo/on-a-wooden-table-there-is-an-office-sheet-of-paper-with-the-text-tell-your-story-business.jpg?s=2048x2048&w=is&k=20&c=1R9hET90ymQB4Ijp2zcxe-5cP3D_oYZ1OyPByjKf3bI=");
+        background-size: 800px;
+      }
+    </style>
+</head>
+<body>
+{% block content %}
+  <h2>Edit Writing</h2>
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Save</button>
+  </form>
+{% endblock %}
+</body>
+</html>

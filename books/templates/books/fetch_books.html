@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch Books by Genre</title>
+</head>
+<body>
+    <h1>Fetch Books by Genre</h1>
+    <select id="genre-select">
+        <option value="fiction">Fiction</option>
+        <option value="nonfiction">Non-fiction</option>
+        <option value="fantasy">Fantasy</option>
+        <option value="mystery">Mystery</option>
+        <option value="action">Action</option>
+        <option value="adventure">Adventure</option>
+        <option value="horror">Horror</option>
+        <option value="romance">Romance</option>
+    </select>
+    <button onclick="fetchBooks()">Fetch Books</button>
+    <div id="books-list"></div>
+
+    <script>
+        function fetchBooks() {
+            const genre = document.getElementById('genre-select').value;
+            fetch(`/books/fetch_books/${genre}/`)
+                .then(response =>  {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    const booksList = document.getElementById('books-list');
+                    booksList.innerHTML = ''; // Clear previous results
+                    if (data.books) {
+                        data.books.forEach(book => {
+                            const bookItem = document.createElement('div');
+                            bookItem.textContent = book.volumeInfo.title;
+                            booksList.appendChild(bookItem);
+                        });
+                    } else if (data.error) {
+                        booksList.textContent = 'Error: ' + data.error;
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching books:', error);
+                    const booksList = document.getElementById('books-list');
+                    booksList.textContent = 'Error fetching books: ' + error.message;
+                });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <style>
+        .AllProfile{
+            border: 17rem 4rem 3rem 4rem;
+            box-sizing: border-box;
+            box-shadow: 3px 4px 3px 4px #00000040;
+            padding: 2rem;
+            background-color: #f1f5f8;
+            max-width: 600px;
+            max-height: 680px;
+            background-color: rgb(219, 167, 167);
+        }
+        body{
+            background-color: wheat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-size: medium;
+        }
+        fieldset{
+            justify-content: left;
+            text-align: left;
+        }
+        label{
+            text-decoration: underline;
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+<body >
+    <div class="AllProfile">
+        <legend style="font: size 25px;text-align:center ;text-decoration: solid;">Profile Information</legend>
+        {% if messages %}
+            {% for message in messages %}
+                <div>{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+        <form action="" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="media">
+                <h2 class="accountHeading" style="text-decoration: underline;">{{ form.instance.username }}
+                    
+                </h2>
+                <label for="Status">Status</label>
+                <small class="text-muted" id="Status">({{ form.instance.status }})</small>
+                <br>
+                <label for="Full_Name">Full Name</label>
+                <p class="text-secondary" id="Full_Name">{{ form.instance.first_name }} {{ form.instance.last_name }}</p>
+                <br>
+                <label for="Email">Email</label>
+                <p class="text-secondary" id="Email">{{ form.instance.email }}</p>
+                
+            </div>
+            {% if user.username == form.instance.username %}
+                <fieldset class="formGroup">
+                    <legend>Edit Profile Information</legend>
+                    <div class="form-row">
+                        <div class="row1">
+                            {{ form.first_name.label_tag }} {{ form.first_name }}  <!-- Add label tags for better clarity -->
+                        </div>
+                        <div class="row2">
+                            {{ form.last_name.label_tag }} {{ form.last_name }}
+                        </div>
+                    </div>
+                    {{ form.email.label_tag }} {{ form.email }}
+                    <br>
+                    {{ form.description.label_tag }} {{ form.description }}
+                    <br>
+                    <a href="{% url 'password_change' %}">Change Password</a>
+                </fieldset>
+                <div class="formGroup">
+                    <button class="btn" type="submit">Update</button>
+                </div>
+            {% endif %}
+        </form>
+    </div>
+</body>
+</html>
+

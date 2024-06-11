@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    <style>
+        .CourseContent{
+            border: 17rem 4rem 3rem 4rem;
+            box-sizing: border-box;
+            box-shadow: 3px 4px 3px 4px #00000040;
+            padding: 2rem;
+            background-color: #f1f5f8;
+            max-width: 600px;
+            max-height: 680px;
+            background-color: rgb(219, 167, 167);
+            
+        }
+        body{
+            background-color: wheat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-size: medium;
+        }
+        fieldset{
+            justify-content: left;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    </div>
+        {% if messages %}
+            {% for message in messages %}
+                <div>{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+    </div>
+    <div class="CourseContent">
+        <form method="post">
+            {% csrf_token %}
+            <fieldset>
+                <legend>Join Us Today</legend>
+                {{form.as_p}}
+            </fieldset>
+           <p> By registering you accept the Terms of Services and Privacy Policies.</p>
+
+           <div class="ButtonMake"> 
+            <button class="btn" type="submit">Sign Up</button>
+           </div>
+        </form>
+        <div class="Others">
+            <small class="text-muted">
+                <p>Already have an Account?</p>
+                <a href="{% url 'login' %}">Sign In</a>
+            </small>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <style>
+        header{
+            height: 1.5rem;
+        }
+        h4{
+            font-size: 20px;
+            color: rebeccapurple;
+            text-align: left;
+            margin-bottom: 1rem;
+            margin-top: 0rem;
+        }
+        h5{
+            font-size: 27px;
+            margin-top: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .Heading{
+            font-size: 30px;
+            text-align: center;
+            font-family:Georgia;
+            margin-right: 1rem;
+            margin-left: 2rem;
+            margin-top: 2rem;
+            margin-bottom: 0.2rem;
+            font-style: italic;
+        }
+        .links{
+            justify-content: left;
+            align-content: flex-start;
+            display: flex;
+            
+            
+
+        }
+        .topic{
+            font-size: 32px;
+            text-align: left;
+            padding: 1.5%;
+            margin-top: 0rem;
+            gap: 4%;
+            text-decoration: none;
+            
+        }
+        .backImage{
+            width: 1400px;
+            height: auto;
+            display: block;
+            margin: 0rem 0rem 3rem 0rem;
+            grid-column: auto;
+            /*align-content:flex-end;
+            justify-content: right;*/
+            
+        }
+        body{
+            background-color: wheat;
+            width: 900px;
+            height: 150px;
+        }
+    </style>
+</head>
+<header>
+    <h4>InspiredReads</h4>
+    <h5>Dashboard</h5>
+</header>
+<body >
+    {% csrf_token %}
+    
+    <h1 class="Heading" >Welcome,{{ username }}</h1>
+    <div class="links">
+    <a class="topic" href="{% url 'users:profile' username %}">Edit Profile</a>
+    <br>
+    <a  class="topic" href="{% url 'books:selected_genres' %}">Select Favorite Genres</a>
+    <br>
+    <a class="topic" href="{%url 'Novelwrite:create_novel' %}">Start Writing</a>
+    <br>
+    <a  class="topic" href="{% url 'Novelwrite:select_novel' %}">Start Editing</a>
+    </div>
+    
+    <img class="backImage" src="https://t4.ftcdn.net/jpg/06/23/90/81/240_F_623908112_CD00C4oq4lA93xAEnFVoDaU8dFzELblw.jpg
+
+    "  >
+</body>
+</html>
+
