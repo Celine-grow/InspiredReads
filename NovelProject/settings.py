@@ -87,7 +87,7 @@ DATABASES = {
     }
 }
 
-GOOGLE_BOOKS_API_KEY = " "
+GOOGLE_BOOKS_API_KEY = os.getenv('GOOGLE_BOOKS_API_KEY', 'NOT FOUND')
 
 print(f"Google Books API Key: {GOOGLE_BOOKS_API_KEY}")
 
