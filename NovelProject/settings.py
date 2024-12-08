@@ -110,6 +110,8 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 AUTH_USER_MODEL='users.CustomUser'
 
+GOOGLE_BOOKS_API_KEY=AIzaSyAsVFop9w7K0zFc35SOA_0OKMay7QKc6_I
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
